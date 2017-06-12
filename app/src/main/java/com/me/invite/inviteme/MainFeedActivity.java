@@ -10,6 +10,5 @@ public class MainFeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_feed);
         // stuff more changes
-
     }
 }
