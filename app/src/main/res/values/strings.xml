@@ -3,4 +3,7 @@
     <string name="continue_button">Continue as Guest</string>
     <string name="logo">InviteMe</string>
     <string name="main_feed">Main Feed</string>
+    <string name="create_event">Create Event</string>
+    <string name="events_feed">Events Feed</string>
+    <string name="my_events">My Events</string>
 </resources>
