@@ -10,7 +10,7 @@ public class DatabaseStorage {
 
     private ArrayList<Shindig> shindigs;
 
-    public DatabaseStorage(ArrayList<Shindig> shindigs) {
+    public DatabaseStorage() {
         this.shindigs = shindigs;
     }
 
