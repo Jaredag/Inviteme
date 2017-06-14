@@ -1,5 +1,8 @@
 package com.me.invite.inviteme;
 
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,8 +10,15 @@ import java.util.Date;
  * Created by Jared on 6/12/2017.
  */
 
-public class Shindig {
-    private String title;
+public class Shindig extends AppCompatActivity{
+
+    /*@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_shindig);
+    }
+
+    /*private String title;
     private String description;
     private String location;
     private Date date;
@@ -26,9 +36,7 @@ public class Shindig {
         this.partyAnimals = partyAnimals;
     }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
     public void setTitle(String title) {
         this.title = title;
@@ -80,5 +88,5 @@ public class Shindig {
 
     public void setPartyAnimals(ArrayList<PartyAnimal> partyAnimals) {
         this.partyAnimals = partyAnimals;
-    }
+    }*/
 }

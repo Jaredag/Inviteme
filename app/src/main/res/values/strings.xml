@@ -6,4 +6,11 @@
     <string name="create_event">Create Event</string>
     <string name="events_feed">Events Feed</string>
     <string name="my_events">My Events</string>
+    <string name="title">Title</string>
+    <string name="description">Describe your event.</string>
+    <string name="location">Location</string>
+    <string name="date">Date and Time</string>
+    <string name="numSpots"># of Spots</string>
+    <string name="numSpotsValue"> 1&#8211;50</string>
+    <string name="button_createShindig">Create</string>
 </resources>
