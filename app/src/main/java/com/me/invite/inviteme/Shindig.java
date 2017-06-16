@@ -15,19 +15,18 @@ public class Shindig {
     private String title;
     private String description;
     private String location;
-    private Date date;
+    private String date;
     private int numSpots;
     PartyAnimal host;
     private ArrayList<PartyAnimal> partyAnimals;
 
-    public Shindig(String title, String description, String location, Date date, int numSpots, PartyAnimal host, ArrayList<PartyAnimal> partyAnimals) {
+    public Shindig(String title, String description, String location, String date, int numSpots, PartyAnimal host) {
         this.title = title;
         this.description = description;
         this.location = location;
         this.date = date;
         this.numSpots = numSpots;
         this.host = host;
-        this.partyAnimals = partyAnimals;
     }
 
     public String getTitle() { return title; }
@@ -52,11 +51,11 @@ public class Shindig {
         this.location = location;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

@@ -19,7 +19,7 @@ public class MainFeedActivity extends AppCompatActivity {
 
     // Continue as Guest to the Main feed
     public void createAnEvent(View view){
-        // Create an Event
+        // Create an Eventf
         Intent intent = new Intent(this, CreateShindigActivity.class);
         startActivity(intent);
     }

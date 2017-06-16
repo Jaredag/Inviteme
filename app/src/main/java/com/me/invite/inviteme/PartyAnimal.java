@@ -12,10 +12,9 @@ public class PartyAnimal {
     private String phoneNum;
     private ArrayList<Shindig> shindigs;
 
-    public PartyAnimal(String userName, String phoneNum, ArrayList<Shindig> shindigs) {
+    public PartyAnimal(String userName, String phoneNum) {
         this.userName = userName;
         this.phoneNum = phoneNum;
-        this.shindigs = shindigs;
     }
 
     public String getUserName() {
