@@ -25,7 +25,7 @@ public class MainFeedActivity extends AppCompatActivity {
     }
 
     // This will be used for the myEventsActivity
-    // This will not be a function though, just code in the
+    // this will not be a function though, just code in the
     // activity itself in the onCreate
     public void getYourEvents(View view){
         SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
