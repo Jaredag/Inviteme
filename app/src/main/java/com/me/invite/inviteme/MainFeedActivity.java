@@ -24,6 +24,11 @@ public class MainFeedActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void seeYourEvents(View view){
+        Intent intent = new Intent(this, myShindigsActivity.class);
+        startActivity(intent);
+    }
+
     // This will be used for the myEventsActivity
     // this will not be a function though, just code in the
     // activity itself in the onCreate
