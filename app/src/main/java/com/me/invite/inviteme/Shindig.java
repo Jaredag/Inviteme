@@ -10,15 +10,9 @@ import java.util.Date;
  * Created by Jared on 6/12/2017.
  */
 
-public class Shindig {//extends AppCompatActivity{
+public class Shindig {
 
-    /*@Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shindig);
-    }*/
-
-    /*private String title;
+    private String title;
     private String description;
     private String location;
     private Date date;
@@ -88,5 +82,5 @@ public class Shindig {//extends AppCompatActivity{
 
     public void setPartyAnimals(ArrayList<PartyAnimal> partyAnimals) {
         this.partyAnimals = partyAnimals;
-    }*/
+    }
 }

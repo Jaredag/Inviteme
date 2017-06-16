@@ -17,11 +17,12 @@ public class MainFeedActivity extends AppCompatActivity {
         // stuff more changes
     }
 
-    /*public void createShindig(View view) {
-        // Go to the create Event page
-        Intent intent = new Intent(this, Shindig.class);
+    // Continue as Guest to the Main feed
+    public void createAnEvent(View view){
+        // Create an Event
+        Intent intent = new Intent(this, CreateShindigActivity.class);
         startActivity(intent);
-    }*/
+    }
 
     // This will be used for the myEventsActivity
     // This will not be a function though, just code in the
