@@ -18,10 +18,6 @@
         </activity>
         <activity android:name=".MainFeedActivity" />
         <activity android:name=".CreateShindigActivity" />
-        <activity
-            android:name=".yourShindigsActivity"
-            android:label="@string/title_activity_your_shindigs"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

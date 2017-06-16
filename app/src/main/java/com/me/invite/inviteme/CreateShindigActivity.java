@@ -1,7 +1,9 @@
 package com.me.invite.inviteme;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 public class CreateShindigActivity extends AppCompatActivity {
 
@@ -11,9 +13,9 @@ public class CreateShindigActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_shindig);
     }
 
-     /*public void createShindig(View view) {
+     public void createNewShindig(View view) {
         // Go to the create Event page
-        Intent intent = new Intent(this, Shindig.class);
+        Intent intent = new Intent(this, MainFeedActivity.class);
         startActivity(intent);
-    }*/
+    }
 }

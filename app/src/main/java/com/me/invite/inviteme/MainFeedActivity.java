@@ -25,7 +25,7 @@ public class MainFeedActivity extends AppCompatActivity {
     }
 
     public void seeYourEvents(View view){
-        Intent intent = new Intent(this, yourShindigActivity.class);
+        Intent intent = new Intent(this, YourShindigsActivity.class);
         startActivity(intent);
     }
 
