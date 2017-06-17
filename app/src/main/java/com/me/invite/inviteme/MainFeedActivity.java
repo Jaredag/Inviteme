@@ -12,43 +12,46 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainFeedActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";
+    public static final String Pref = "Event";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_feed);
 
         SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = mPrefs.getString(PREFS_NAME, "");
-        Shindig myShindig = gson.fromJson(json, Shindig.class);
-        String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
-        Log.d("Tag", message);
+        String objNull = mPrefs.getString(Pref, null);
 
+        if (objNull != null) {
+            Log.d("Test", "TESTING!!!!!!!!!!!!!!!!!!");
+            Gson gson = new Gson();
+            String json = mPrefs.getString(Pref, "");
+            Shindig myShindig = gson.fromJson(json, Shindig.class);
+            String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
+            Log.d("Tag", message);
 
-        // Setting up the ListView
-        ListView mListView = (ListView) findViewById(R.id.listView2);
+            // Setting up the ListView
+            ListView mListView = (ListView) findViewById(R.id.listView);
 
-        final ArrayList<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
+            List<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
 
-        String[] listItems = new String[shindigList.size()];
-        //Vector<Shindig> listShindigs = new Vector<Shindig>();
+            //String[] shindigList = new String[10];
+            //Vector<Shindig> listShindigs = new Vector<Shindig>();
 
-        for (int i = 0; i < 1; i++)//shindigList.size(); i++)
-        {
-            /*Shindig _shindig = shindigList.get(i);
-            listShindigs.add(_shindig);
-            listItems[i] = _shindig.getTitle();*/
+            for (int i = 0; i < 1; i++)//shindigList.size(); i++)
+            {
+                //Shindig _shindig = shindigList.get(i);
+                shindigList.add(myShindig);
+                //listItems[i] = _shindig.getTitle();
+                // listItems[i] = myShindig.getTitle();
+            }
 
-            listItems[i] = myShindig.getTitle();
+            ArrayAdapter adapter = new ArrayAdapter<Shindig>(this, android.R.layout.simple_list_item_1, shindigList);
+            mListView.setAdapter(adapter);
         }
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems);
-        mListView.setAdapter(adapter);
-
-
 
     }
 

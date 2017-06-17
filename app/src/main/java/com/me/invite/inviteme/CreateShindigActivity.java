@@ -12,6 +12,7 @@ import com.google.gson.Gson;
 
 public class CreateShindigActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";
+    public static final String Pref = "Event";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class CreateShindigActivity extends AppCompatActivity {
          SharedPreferences.Editor editor = mPrefs.edit();
          Gson gson = new Gson();
          String json = gson.toJson(shindig);
-         editor.putString(PREFS_NAME, json);
+         editor.putString(Pref, json);
          editor.commit();
 
          Intent intent = new Intent(this, MainFeedActivity.class);
