@@ -19,9 +19,8 @@ public class MyShindigs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_shindigs);
 
-        // Access shared preferences
+        // Access shared preferences     NEEDS TO BE MODIFIED FOR MULTIPLE EVENTS
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        //Json json = settings.getString("silentMode", false);
         Gson gson = new Gson();
         String json = settings.getString(PREFS_NAME, "");
         Shindig myShindig = gson.fromJson(json, Shindig.class);
