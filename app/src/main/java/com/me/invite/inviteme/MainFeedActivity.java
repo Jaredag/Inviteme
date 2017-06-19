@@ -34,9 +34,9 @@ public class MainFeedActivity extends AppCompatActivity {
             Log.d("Tag", message);
 
             // Setting up the ListView
-            ListView mListView = (ListView) findViewById(R.id.listView);
 
-            List<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
+
+            ArrayList<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
 
             //String[] shindigList = new String[10];
             //Vector<Shindig> listShindigs = new Vector<Shindig>();
@@ -49,7 +49,8 @@ public class MainFeedActivity extends AppCompatActivity {
                 // listItems[i] = myShindig.getTitle();
             }
 
-            ArrayAdapter adapter = new ArrayAdapter<Shindig>(this, android.R.layout.simple_list_item_1, shindigList);
+            CustomAdapter adapter = new CustomAdapter(this, shindigList);
+            ListView mListView = (ListView) findViewById(R.id.listView);
             mListView.setAdapter(adapter);
         }
 

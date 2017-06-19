@@ -32,6 +32,7 @@ public class CreateShindigActivity extends AppCompatActivity {
          EditText spotsText = (EditText) findViewById(R.id.eventSpots);
          String spotsString = spotsText.getText().toString();
          int spots = Integer.parseInt(spotsString);
+         // Pull from shared host name.
          PartyAnimal partyAnimal = new PartyAnimal("Daniel", "555-555-555");
          Log.d("Tag1", "CREATE NEW SHINDIG");
          // Create a class
