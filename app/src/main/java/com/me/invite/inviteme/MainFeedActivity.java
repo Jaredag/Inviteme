@@ -22,7 +22,7 @@ public class MainFeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_feed);
 
-        SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        /*SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String objNull = mPrefs.getString(Pref, null);
 
         if (objNull != null) {
@@ -47,7 +47,7 @@ public class MainFeedActivity extends AppCompatActivity {
             CustomAdapter adapter = new CustomAdapter(this, shindigList);
             ListView mListView = (ListView) findViewById(R.id.listView);
             mListView.setAdapter(adapter);
-        }
+        }*/
 
     }
 
