@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "883445015204",
+    "firebase_url": "https://inviteme-2a762.firebaseio.com",
+    "project_id": "inviteme-2a762",
+    "storage_bucket": "inviteme-2a762.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883445015204:android:387f3fb71c6022b2",
+        "android_client_info": {
+          "package_name": "com.me.invite.inviteme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883445015204-ns38oh6ejc0gptk8cnkelhpl0mh71kd7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.me.invite.inviteme",
+            "certificate_hash": "b0ab6ca4748b30d9c690b026382b84cc4e038211"
+          }
+        },
+        {
+          "client_id": "883445015204-uo5bgch2jsh3ualss650i2f6vgl6skcq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-aGtTyXfXRJcTf5Fq4quKB7RGbRcdG7U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883445015204-uo5bgch2jsh3ualss650i2f6vgl6skcq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -20,7 +20,7 @@ public class CreateShindigActivity extends AppCompatActivity {
     }
 
      public void createNewShindig(View view) {
-         // Pull fields from the create events page
+         // Pull fields from the create events pagef
          EditText titleText = (EditText) findViewById(R.id.eventTitle);
          String title = titleText.getText().toString();
          EditText descriptionText = (EditText) findViewById(R.id.eventDesc);
