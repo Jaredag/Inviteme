@@ -17,6 +17,9 @@ import java.util.ArrayList;
  * Created by Jared on 6/19/2017.
  */
 
+// Found a tutorial on how to create a custom array adapter and implement it in our application
+// Guide:  https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
+
 public class CustomAdapter extends ArrayAdapter<Shindig> {
 
 

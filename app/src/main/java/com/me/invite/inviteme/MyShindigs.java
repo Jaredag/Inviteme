@@ -32,64 +32,31 @@ public class MyShindigs extends AppCompatActivity {
             String json = mPrefs.getString(Pref, "");
             Shindig myShindig = gson.fromJson(json, Shindig.class);
             String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
-            Log.d("Tag", message);
+            Log.d("Test2", message);
 
-            // Setting up the ListView
-            ListView mListView = (ListView) findViewById(R.id.listView2);
-
-            List<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
-
-            //String[] shindigList = new String[10];
-            //Vector<Shindig> listShindigs = new Vector<Shindig>();
+            ArrayList<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
 
             for (int i = 0; i < 1; i++)//shindigList.size(); i++)
             {
-                //Shindig _shindig = shindigList.get(i);
                 shindigList.add(myShindig);
-                //listItems[i] = _shindig.getTitle();
-                // listItems[i] = myShindig.getTitle();
             }
 
-            ArrayAdapter adapter = new ArrayAdapter<Shindig>(this, android.R.layout.simple_list_item_1, shindigList);
+            CustomAdapter adapter = new CustomAdapter(this, shindigList);
+            ListView mListView = (ListView) findViewById(R.id.listView2);
             mListView.setAdapter(adapter);
-
         }
-        /* Access shared preferences     NEEDS TO BE MODIFIED FOR MULTIPLE EVENTS
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        Gson gson = new Gson();
-        String json = settings.getString(PREFS_NAME, "");
-        Shindig myShindig = gson.fromJson(json, Shindig.class);
-
-
-        // Setting up the ListView
-        ListView mListView = (ListView) findViewById(R.id.listView2);
-
-        final ArrayList<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
-
-        String[] listItems = new String[shindigList.size()];
-        //Vector<Shindig> listShindigs = new Vector<Shindig>();
-
-        for (int i = 0; i < 1; i++)//shindigList.size(); i++)
-        {
-            //Shindig _shindig = shindigList.get(i);
-            //listShindigs.add(_shindig);
-            //listItems[i] = _shindig.getTitle();
-
-            listItems[i] = myShindig.getTitle();
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems);
-        mListView.setAdapter(adapter);*/
     }
 
     public void createAnEvent(View view){
         // Create an event
+        Log.i("TestCreateButton", "Create Button was pressed");
         Intent intent = new Intent(this, CreateShindigActivity.class);
         startActivity(intent);
     }
 
-    public void continueAsGuest(View view){
+    public void goToMainFeed(View view){
         // Go to the Main Feed
+        Log.i("TestMainFeedButton", "Main Feed button was pressed");
         Intent intent = new Intent(this, MainFeedActivity.class);
         startActivity(intent);
     }

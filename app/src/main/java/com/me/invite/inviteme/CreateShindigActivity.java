@@ -34,7 +34,7 @@ public class CreateShindigActivity extends AppCompatActivity {
          int spots = Integer.parseInt(spotsString);
          // Pull from shared host name.
          PartyAnimal partyAnimal = new PartyAnimal("Daniel", "555-555-555");
-         Log.d("Tag1", "CREATE NEW SHINDIG");
+
          // Create a class
          Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal);
 
@@ -45,6 +45,8 @@ public class CreateShindigActivity extends AppCompatActivity {
          String json = gson.toJson(shindig);
          editor.putString(Pref, json);
          editor.commit();
+
+         Log.i("ShindigCreated", "CREATE NEW SHINDIG!");
 
          Intent intent = new Intent(this, MainFeedActivity.class);
          startActivity(intent);
