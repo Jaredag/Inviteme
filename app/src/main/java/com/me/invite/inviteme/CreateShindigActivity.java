@@ -10,6 +10,10 @@ import android.widget.EditText;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 public class CreateShindigActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";
     public static final String Pref = "Event";
@@ -38,13 +42,25 @@ public class CreateShindigActivity extends AppCompatActivity {
          // Create a class
          Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal);
 
-         // Convert Class to json and store in shared preferences.
+         // Pull the array of Shindigs created for the My Events page
          SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-         SharedPreferences.Editor editor = mPrefs.edit();
+         String objNull = mPrefs.getString(Pref, null);
          Gson gson = new Gson();
-         String json = gson.toJson(shindig);
-         editor.putString(Pref, json);
-         editor.commit();
+
+
+         if (objNull != null) {
+             Log.d("Test", "TESTING!!!!!!!!!!!!!!!!!!");
+
+             String json = mPrefs.getString(Pref, "");
+             Set<Shindig> shindigList = gson.fromJson(json, Set.class);
+             shindigList.add(shindig);
+             String message = "This is a title: " + shindig.getTitle() + " Desc: " + shindig.getDescription();
+             Log.d("Tag", message);
+             SharedPreferences.Editor editor = mPrefs.edit();
+             String json2 = gson.toJson(shindigList);
+             editor.putString(Pref, json2);
+             editor.commit();
+         }
 
          Intent intent = new Intent(this, MainFeedActivity.class);
          startActivity(intent);
