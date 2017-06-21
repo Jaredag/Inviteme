@@ -10,7 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
@@ -27,18 +29,17 @@ public class MyShindigs extends AppCompatActivity {
         String objNull = mPrefs.getString(Pref, null);
 
         if (objNull != null) {
-            Log.d("Test", "TESTING!!!!!!!!!!!!!!!!!!");
+            Log.d("Test", "Your Events Test");
             Gson gson = new Gson();
             String json = mPrefs.getString(Pref, "");
-            Shindig myShindig = gson.fromJson(json, Shindig.class);
-            String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
-            Log.d("Test2", message);
+            Type type = new TypeToken<ArrayList<Shindig>>() {}.getType();
+            ArrayList<Shindig> shindigList = gson.fromJson(json, type);
 
-            ArrayList<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
-
-            for (int i = 0; i < 1; i++)//shindigList.size(); i++)
+            for (int i = 0; i < shindigList.size(); i++)
             {
-                shindigList.add(myShindig);
+                Shindig myShindig = shindigList.get(i);
+                String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
+                Log.d("Test2", message);
             }
 
             CustomAdapter adapter = new CustomAdapter(this, shindigList);

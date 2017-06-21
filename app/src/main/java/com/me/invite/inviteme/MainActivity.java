@@ -11,7 +11,6 @@ import android.view.View;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
     //public static final String EXTRA_MESSAGE = "com.me.invite.inviteme.MESSAGE";
@@ -25,10 +24,10 @@ public class MainActivity extends AppCompatActivity {
         // Pull the array of Shindigs created for the My Events page
         SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         Gson gson = new Gson();
-        Set<Shindig> shindigList = (Set<Shindig>) new ArrayList<Shindig>();
+        ArrayList<Shindig> shindigList = new ArrayList<Shindig>();
         SharedPreferences.Editor editor = mPrefs.edit();
-        String json2 = gson.toJson(shindigList);
-        editor.putString(Pref, json2);
+        String json = gson.toJson(shindigList);
+        editor.putString(Pref, json);
         editor.commit();
     }
 
@@ -38,5 +37,4 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MainFeedActivity.class);
         startActivity(intent);
     }
-
 }

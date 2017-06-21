@@ -21,7 +21,7 @@ public class MainFeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_feed);
-
+        // This will change to the firebase code.
         /*SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String objNull = mPrefs.getString(Pref, null);
 

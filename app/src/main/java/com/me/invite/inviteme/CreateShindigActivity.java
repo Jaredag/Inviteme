@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -47,12 +49,11 @@ public class CreateShindigActivity extends AppCompatActivity {
          String objNull = mPrefs.getString(Pref, null);
          Gson gson = new Gson();
 
-
          if (objNull != null) {
-             Log.d("Test", "TESTING!!!!!!!!!!!!!!!!!!");
-
+             Log.i("ShindigCreated", "CREATE NEW SHINDIG!");
              String json = mPrefs.getString(Pref, "");
-             Set<Shindig> shindigList = gson.fromJson(json, Set.class);
+             Type type = new TypeToken<ArrayList<Shindig>>() {}.getType();
+             ArrayList<Shindig> shindigList = gson.fromJson(json, type);
              shindigList.add(shindig);
              String message = "This is a title: " + shindig.getTitle() + " Desc: " + shindig.getDescription();
              Log.d("Tag", message);
@@ -61,9 +62,6 @@ public class CreateShindigActivity extends AppCompatActivity {
              editor.putString(Pref, json2);
              editor.commit();
          }
-
-         Log.i("ShindigCreated", "CREATE NEW SHINDIG!");
-
          Intent intent = new Intent(this, MainFeedActivity.class);
          startActivity(intent);
     }
