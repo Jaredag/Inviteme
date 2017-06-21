@@ -12,7 +12,8 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.Set;
+import java.util.List;
+import java.util.Vector;
 
 public class MyShindigs extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";
@@ -29,77 +30,33 @@ public class MyShindigs extends AppCompatActivity {
             Log.d("Test", "TESTING!!!!!!!!!!!!!!!!!!");
             Gson gson = new Gson();
             String json = mPrefs.getString(Pref, "");
-            Set<Shindig> shindigList = gson.fromJson(json, Set.class);
-            Shindig myShindig;
-            Log.d("Test3", "Before for loop");
-            for (int i = 0; i < shindigList.size(); i++)
+            Shindig myShindig = gson.fromJson(json, Shindig.class);
+            String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
+            Log.d("Test2", message);
+
+            ArrayList<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
+
+            for (int i = 0; i < 1; i++)//shindigList.size(); i++)
             {
-                Log.d("Test4", "Inside for loop");
-                //myShindig = shindigList.get(i);
-                Log.d("Test5", "Really inside of loop");
-                //String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
-                //Log.d("Tag", message);
+                shindigList.add(myShindig);
             }
-            //Shindig myShindig = gson.fromJson(json, Shindig.class);
 
-
-
-            // Setting up the ListView
+            CustomAdapter adapter = new CustomAdapter(this, shindigList);
             ListView mListView = (ListView) findViewById(R.id.listView2);
-
-           // List<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
-
-            //String[] shindigList = new String[10];
-            //Vector<Shindig> listShindigs = new Vector<Shindig>();
-
-            //for (int i = 0; i < 1; i++)//shindigList.size(); i++)
-            //{
-                //Shindig _shindig = shindigList.get(i);
-             //   shindigList.add(myShindig);
-                //listItems[i] = _shindig.getTitle();
-                // listItems[i] = myShindig.getTitle();
-            //}
-
-            //ArrayAdapter adapter = new ArrayAdapter<Shindig>(this, android.R.layout.simple_list_item_1, shindigList);
-            //mListView.setAdapter(adapter);
-
+            mListView.setAdapter(adapter);
         }
-        /* Access shared preferences     NEEDS TO BE MODIFIED FOR MULTIPLE EVENTS
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        Gson gson = new Gson();
-        String json = settings.getString(PREFS_NAME, "");
-        Shindig myShindig = gson.fromJson(json, Shindig.class);
-
-
-        // Setting up the ListView
-        ListView mListView = (ListView) findViewById(R.id.listView2);
-
-        final ArrayList<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
-
-        String[] listItems = new String[shindigList.size()];
-        //Vector<Shindig> listShindigs = new Vector<Shindig>();
-
-        for (int i = 0; i < 1; i++)//shindigList.size(); i++)
-        {
-            //Shindig _shindig = shindigList.get(i);
-            //listShindigs.add(_shindig);
-            //listItems[i] = _shindig.getTitle();
-
-            listItems[i] = myShindig.getTitle();
-        }
-
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listItems);
-        mListView.setAdapter(adapter);*/
     }
 
     public void createAnEvent(View view){
         // Create an event
+        Log.i("TestCreateButton", "Create Button was pressed");
         Intent intent = new Intent(this, CreateShindigActivity.class);
         startActivity(intent);
     }
 
-    public void continueAsGuest(View view){
+    public void goToMainFeed(View view){
         // Go to the Main Feed
+        Log.i("TestMainFeedButton", "Main Feed button was pressed");
         Intent intent = new Intent(this, MainFeedActivity.class);
         startActivity(intent);
     }

@@ -31,15 +31,10 @@ public class MainFeedActivity extends AppCompatActivity {
             String json = mPrefs.getString(Pref, "");
             Shindig myShindig = gson.fromJson(json, Shindig.class);
             String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
-            Log.d("Tag", message);
-
-            // Setting up the ListView
-
+            Log.d("Test2", message);
 
             ArrayList<Shindig> shindigList = new ArrayList<Shindig>(); // ONLINE CODE HAD "=SHINDIG.GETRECIPESFROMFILE("FILE.JSON", THIS);"
 
-            //String[] shindigList = new String[10];
-            //Vector<Shindig> listShindigs = new Vector<Shindig>();
 
             for (int i = 0; i < 1; i++)//shindigList.size(); i++)
             {
@@ -58,11 +53,13 @@ public class MainFeedActivity extends AppCompatActivity {
 
     public void createAnEvent(View view){
         // Create an event
+        Log.i("CreateButtonMainFeed", "Create Button was pressed");
         Intent intent = new Intent(this, CreateShindigActivity.class);
         startActivity(intent);
     }
 
     public void seeYourEvents(View view){
+        Log.i("TestYourFeedButton", "Your Feed button was pressed");
         Intent intent = new Intent(this, MyShindigs.class);
         startActivity(intent);
     }
