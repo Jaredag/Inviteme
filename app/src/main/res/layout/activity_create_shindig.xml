@@ -11,15 +11,15 @@
         android:layout_width="260dp"
         android:layout_height="56dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/title"
-        android:inputType="textPersonName"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
+        android:inputType="textCapSentences"
         app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="RtlHardcoded" />
 
     <EditText
@@ -28,10 +28,10 @@
         android:layout_height="98dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/description"
-        android:inputType="textMultiLine"
+        android:inputType="textCapSentences|textMultiLine"
         app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -43,16 +43,16 @@
         android:layout_width="260dp"
         android:layout_height="75dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/location"
-        android:inputType="textShortMessage"
+        android:inputType="textCapSentences"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eventDesc"
-        android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="RtlHardcoded"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/eventDesc"
+        tools:ignore="RtlHardcoded" />
 
     <EditText
         android:id="@+id/eventDate"
@@ -96,9 +96,9 @@
         android:layout_height="31dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="30dp"
+        android:text="@string/numSpots"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDate"
-        tools:text="@string/numSpots"
         tools:ignore="RtlHardcoded" />
 
     <EditText
