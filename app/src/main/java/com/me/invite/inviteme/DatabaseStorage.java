@@ -1,5 +1,8 @@
 package com.me.invite.inviteme;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 /**
@@ -8,25 +11,34 @@ import java.util.ArrayList;
 
 public class DatabaseStorage {
 
+    private static DatabaseStorage singleton = null;
+    private FirebaseDatabase database;
     private ArrayList<Shindig> shindigs;
 
-    public DatabaseStorage() {
-        this.shindigs = shindigs;
+    protected DatabaseStorage(){
+        // Just to defeat instantiation
+        database = FirebaseDatabase.getInstance();
+    }
+
+    public static DatabaseStorage getInstance(){
+        if (singleton == null){
+            singleton = new DatabaseStorage();
+        }
+        return singleton;
     }
 
     public ArrayList<Shindig> getShindigs() {
         return shindigs;
     }
-
     public void setShindigs(ArrayList<Shindig> shindigs) {
         this.shindigs = shindigs;
     }
 
-    public void pushShindigs(){
-
+    public void pushShindig(Shindig shindig){
+        database.getReference("Shindig").push().setValue(shindig);
     }
 
-    public void pushPartyAnimalInfo(){
+    public void pushUser(){
 
     }
 
@@ -34,7 +46,7 @@ public class DatabaseStorage {
 
     }
 
-    public void pullPartyAnimalInfo(){
+    public void pullUser(){
 
     }
 }

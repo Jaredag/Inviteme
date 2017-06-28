@@ -20,6 +20,19 @@ public class Shindig {
     PartyAnimal host;
     private ArrayList<PartyAnimal> partyAnimals;
 
+    public Shindig(){
+        numSpots = 0;
+    }
+
+    public Shindig(Shindig shindig){
+        this.title = shindig.getTitle();
+        this.description = shindig.getDescription();
+        this.location = shindig.getLocation();
+        this.date = shindig.getDate();
+        this.numSpots = shindig.getNumSpots();
+        this.host = shindig.getHost();
+    }
+
     public Shindig(String title, String description, String location, String date, int numSpots, PartyAnimal host) {
         this.title = title;
         this.description = description;
@@ -28,6 +41,7 @@ public class Shindig {
         this.numSpots = numSpots;
         this.host = host;
     }
+
 
     public String getTitle() { return title; }
 

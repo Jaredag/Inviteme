@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -19,10 +21,13 @@ import java.util.Set;
 public class CreateShindigActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";
     public static final String Pref = "Event";
+    private DatabaseStorage database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_shindig);
+        database = database.getInstance();
     }
 
      public void createNewShindig(View view) {
@@ -62,6 +67,10 @@ public class CreateShindigActivity extends AppCompatActivity {
              editor.putString(Pref, json2);
              editor.commit();
          }
+
+         database.pushShindig(shindig);
+         Log.i("Sent", "Sent to database");
+
          Intent intent = new Intent(this, MainFeedActivity.class);
          startActivity(intent);
     }

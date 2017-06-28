@@ -12,6 +12,10 @@ public class PartyAnimal {
     private String phoneNum;
     private ArrayList<Shindig> shindigs;
 
+    public PartyAnimal(){
+        // Just for instantiation
+    }
+
     public PartyAnimal(String userName, String phoneNum) {
         this.userName = userName;
         this.phoneNum = phoneNum;
