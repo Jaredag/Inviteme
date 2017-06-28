@@ -14,11 +14,12 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 
 /**
+ * Name: CustomAdapter
+ * Purpose: Displays events in a listview with all the information from an event
  * Created by Jared on 6/19/2017.
+ * Found a tutorial on how to create a custom array adapter and implement it in our application
+ * Guide:  https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
  */
-
-// Found a tutorial on how to create a custom array adapter and implement it in our application
-// Guide:  https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
 
 public class CustomAdapter extends ArrayAdapter<Shindig> {
 

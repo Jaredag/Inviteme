@@ -12,11 +12,21 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
+/**
+ * Name: MainActivity
+ * Purpose: Start the app.
+ */
+
+
 public class MainActivity extends AppCompatActivity {
     //public static final String EXTRA_MESSAGE = "com.me.invite.inviteme.MESSAGE";
     public static final String PREFS_NAME = "MyPrefs";
     public static final String Pref = "Event";
     @Override
+
+    /**
+     * onCreate: Creates a default item in Shared Preferences
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -31,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    // Continue as Guest to the Main feed
+    /**
+     * ContinueAsGuest: Starts the Main Feed Activity
+     * @param view
+     */
     public void continueAsGuest(View view){
         // Go to the Main Feed
         Intent intent = new Intent(this, MainFeedActivity.class);

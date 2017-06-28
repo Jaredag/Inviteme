@@ -16,6 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Name: CreateShindigActivity
+ * Purpose: Make another event item
+ */
+
 public class CreateShindigActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";
     public static final String Pref = "Event";
@@ -25,8 +30,12 @@ public class CreateShindigActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_shindig);
     }
 
+    /**
+     * createNewShindig: Lets the user create a new event and saves it to firebase and shared preferences and goes to the main feed page
+     * @param view
+     */
      public void createNewShindig(View view) {
-         // Pull fields from the create events pagef
+         // Pull fields from the create events page
          EditText titleText = (EditText) findViewById(R.id.eventTitle);
          String title = titleText.getText().toString();
          EditText descriptionText = (EditText) findViewById(R.id.eventDesc);
