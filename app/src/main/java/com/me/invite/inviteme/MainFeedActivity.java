@@ -15,11 +15,17 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+/**
+ * MainFeedActivity: Display all the events going on
+ */
 public class MainFeedActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";
     public static final String Pref = "Event";
     private FirebaseDatabase database;
     @Override
+    /**
+     * onCreate: Read from Firebase the different events and display them using a custom adapter
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_feed);
@@ -50,6 +56,10 @@ public class MainFeedActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * createAnEvent: Go to the Create Event page
+     * @param view
+     */
     public void createAnEvent(View view){
         // Create an event
         Log.i("CreateButtonMainFeed", "Create Button was pressed");
@@ -57,6 +67,10 @@ public class MainFeedActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * seeYourEvents: Go to the My Events page
+     * @param view
+     */
     public void seeYourEvents(View view){
         Log.i("TestYourFeedButton", "Your Feed button was pressed");
         Intent intent = new Intent(this, MyShindigs.class);

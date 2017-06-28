@@ -17,10 +17,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+
+/**
+ * MyShindigs: Display a list of the events the user has created/joined
+ */
 public class MyShindigs extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";
     public static final String Pref = "Event";
     @Override
+
+    /**
+     * onCreate: Reads all the events from shared preferences and displays them
+     */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_shindigs);
@@ -48,6 +56,10 @@ public class MyShindigs extends AppCompatActivity {
         }
     }
 
+    /**
+     * createAnEvent: Goes to the Create Event page
+     * @param view
+     */
     public void createAnEvent(View view){
         // Create an event
         Log.i("TestCreateButton", "Create Button was pressed");
@@ -55,6 +67,10 @@ public class MyShindigs extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * goToMainFeed: Goes back to the Main Feed page
+     * @param view
+     */
     public void goToMainFeed(View view){
         // Go to the Main Feed
         Log.i("TestMainFeedButton", "Main Feed button was pressed");

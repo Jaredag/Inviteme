@@ -7,7 +7,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Jared on 6/12/2017.
+ * This class contains the list of the variables that will be available
+ * for user input in the CreateEvent activity.
+ *
+ * numSpots = number of people that can RSVP to an event
+ * partyAnimals = the people that RSVP
  */
 
 public class Shindig {

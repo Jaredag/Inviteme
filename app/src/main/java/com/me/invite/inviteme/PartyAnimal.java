@@ -3,6 +3,7 @@ package com.me.invite.inviteme;
 import java.util.ArrayList;
 
 /**
+ * PartyAnimal: To hold user information
  * Created by Jared on 6/12/2017.
  */
 

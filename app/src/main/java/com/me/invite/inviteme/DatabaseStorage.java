@@ -6,6 +6,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 /**
+ * DatabaseStorage: Creates a Singleton for a Database instance
  * Created by Jared on 6/12/2017.
  */
 
