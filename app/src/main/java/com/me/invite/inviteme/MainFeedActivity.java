@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Name: MainFeedActivity
- * Purpose: Display all the events going on
+ * MainFeedActivity: Display all the events going on
  */
 public class MainFeedActivity extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";

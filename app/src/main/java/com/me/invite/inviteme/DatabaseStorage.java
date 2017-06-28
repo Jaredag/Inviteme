@@ -3,8 +3,7 @@ package com.me.invite.inviteme;
 import java.util.ArrayList;
 
 /**
- * Name: DatabaseStorage
- * Purpose: Creates a Singleton for a Database instance
+ * DatabaseStorage: Creates a Singleton for a Database instance
  * Created by Jared on 6/12/2017.
  */
 

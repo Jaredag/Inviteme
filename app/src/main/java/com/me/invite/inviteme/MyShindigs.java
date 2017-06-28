@@ -19,8 +19,7 @@ import java.util.Vector;
 
 
 /**
- * Name: MyShindigs
- * Purpose: Display a list of the events the user has created/joined
+ * MyShindigs: Display a list of the events the user has created/joined
  */
 public class MyShindigs extends AppCompatActivity {
     public static final String PREFS_NAME = "MyPrefs";

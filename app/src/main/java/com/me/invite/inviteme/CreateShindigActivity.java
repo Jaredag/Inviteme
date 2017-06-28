@@ -17,8 +17,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Name: CreateShindigActivity
- * Purpose: Make another event item
+ * CreateShindigActivity: Make another event item
  */
 
 public class CreateShindigActivity extends AppCompatActivity {

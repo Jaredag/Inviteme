@@ -13,8 +13,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 /**
- * Name: MainActivity
- * Purpose: Start the app.
+ * MainActivity: Start the app.
  */
 
 
