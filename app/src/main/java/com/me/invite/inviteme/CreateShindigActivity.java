@@ -1,12 +1,15 @@
 package com.me.invite.inviteme;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,12 +37,19 @@ public class CreateShindigActivity extends AppCompatActivity {
         database = database.getInstance();
     }
 
+    public void displayToast(CharSequence message) {
+        Context context = getApplicationContext();
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
+
     /**
      * createNewShindig: Lets the user create a new event and saves it to firebase and shared preferences and goes to the main feed page
      * @param view
      */
      public void createNewShindig(View view) {
          // Pull fields from the create events page
+
+         int spots = 0;
          EditText titleText = (EditText) findViewById(R.id.eventTitle);
          String title = titleText.getText().toString();
          EditText descriptionText = (EditText) findViewById(R.id.eventDesc);
@@ -50,7 +60,27 @@ public class CreateShindigActivity extends AppCompatActivity {
          String date_time = date_timeText.getText().toString();
          EditText spotsText = (EditText) findViewById(R.id.eventSpots);
          String spotsString = spotsText.getText().toString();
-         int spots = Integer.parseInt(spotsString);
+         if (!spotsString.isEmpty())
+             spots = Integer.parseInt(spotsString);
+         else {
+             displayToast("Number of spots is empty!");
+             return;
+         }
+
+         if (title.isEmpty() || description.isEmpty() || location.isEmpty() || date_time.isEmpty() || spots > 50 || spots < 2)
+         {
+             if (title.isEmpty())
+                 displayToast("Title is empty!");
+             if (description.isEmpty())
+                 displayToast("Description is empty!");
+             if (location.isEmpty())
+                 displayToast("Location is empty!");
+             if (date_time.isEmpty())
+                 displayToast("Date/Time is empty!");
+             if (spots > 50 || spots < 2)
+                 displayToast("# of spots must be 2-50!");
+             return;
+         }
          // Pull from shared host name.
          PartyAnimal partyAnimal = new PartyAnimal("Daniel", "555-555-555");
 
@@ -78,7 +108,6 @@ public class CreateShindigActivity extends AppCompatActivity {
 
          database.pushShindig(shindig);
          Log.i("Sent", "Sent to database");
-
          Intent intent = new Intent(this, MainFeedActivity.class);
          startActivity(intent);
     }
