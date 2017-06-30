@@ -20,4 +20,6 @@
     <string name="txt_time">Time</string>
     <string name="host_preface">Hosted by:</string>
     <string name="event_RSVP">RSVP</string>
+    <string name="total_Spots">Spots:</string>
+    <string name="txt_Spots">Spots</string>
 </resources>

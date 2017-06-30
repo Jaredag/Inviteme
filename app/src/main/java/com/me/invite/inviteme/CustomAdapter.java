@@ -37,12 +37,16 @@ public class CustomAdapter extends ArrayAdapter<Shindig> {
         TextView title = (TextView) convertView.findViewById(R.id.txtTitle);
         TextView desc = (TextView) convertView.findViewById(R.id.txtDesc);
         TextView host = (TextView) convertView.findViewById(R.id.txtHost);
+        TextView location = (TextView) convertView.findViewById(R.id.txtLocation);
         TextView time = (TextView) convertView.findViewById(R.id.txtTime);
+        TextView spots = (TextView) convertView.findViewById(R.id.txtSpots);
 
         title.setText(shindig.getTitle());
         desc.setText(shindig.getDescription());
         host.setText(shindig.getHost().getUserName());
+        location.setText(shindig.getLocation());
         time.setText(shindig.getDate());
+        spots.setText(String.valueOf(shindig.getNumSpots()));
 
         return convertView;
     }

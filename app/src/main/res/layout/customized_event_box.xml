@@ -6,8 +6,8 @@ android:layout_height="match_parent"
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:layout_weight="0.18"
+        android:layout_height="150dp"
+        android:layout_weight="0.35"
         android:background="#f5f1e4">
 
         <TextView
@@ -25,48 +25,74 @@ android:layout_height="match_parent"
             android:id="@+id/txtDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/txtTitle"
-            android:layout_below="@+id/txtTitle"
             android:text="@string/txt_desc"
-            android:textSize="12sp" />
+            android:textSize="11sp"
+            android:layout_below="@+id/txtTitle"
+            android:layout_alignStart="@+id/txtTitle"
+            android:layout_alignEnd="@+id/txtHost" />
 
         <TextView
             android:id="@+id/txtTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/txtDesc"
             android:text="@string/txt_time"
-            android:textSize="12sp" />
+            android:textSize="11sp"
+            android:layout_alignBaseline="@+id/button_RSVP"
+            android:layout_alignBottom="@+id/button_RSVP"
+            android:layout_alignStart="@+id/txtDesc" />
 
         <TextView
             android:id="@+id/txtHost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15dp"
             android:text="@string/txt_host"
-            android:textSize="15sp" />
+            android:textSize="18sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignEnd="@+id/txtSpots" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/hosted_By"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:text="@string/host_preface"
             android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/txtHost" />
+            android:layout_toStartOf="@+id/txtHost"
+            android:layout_marginEnd="11dp" />
 
-        <CheckBox
-            android:id="@+id/checkBox"
+        <TextView
+            android:id="@+id/txtLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/txtTime"
-            android:layout_alignBottom="@+id/txtTime"
-            android:layout_alignEnd="@+id/txtHost"
-            android:checked="false"
-            android:duplicateParentState="false"
-            android:text="@string/event_RSVP" />
+            android:text="@string/location"
+            android:layout_alignStart="@+id/txtTime"
+            android:layout_toStartOf="@+id/total_Spots"
+            android:layout_alignTop="@+id/total_Spots"
+            android:layout_above="@+id/button_RSVP" />
+
+        <Button
+            android:id="@+id/button_RSVP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:text="@string/event_RSVP"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/total_Spots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_Spots"
+            android:layout_above="@+id/button_RSVP"
+            android:layout_alignStart="@+id/button_RSVP" />
+
+        <TextView
+            android:id="@+id/txtSpots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txt_Spots"
+            android:layout_above="@+id/button_RSVP"
+            android:layout_alignEnd="@+id/button_RSVP" />
+
     </RelativeLayout>
 </LinearLayout>

@@ -38,8 +38,7 @@ public class CreateShindigActivity extends AppCompatActivity {
     }
 
     public void displayToast(CharSequence message) {
-        Context context = getApplicationContext();
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     /**
