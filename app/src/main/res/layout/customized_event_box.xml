@@ -7,7 +7,8 @@ android:layout_height="match_parent"
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="76dp"
-        android:layout_weight="0.05">
+        android:layout_weight="0.18"
+        android:background="#f5f1e4">
 
         <TextView
             android:id="@+id/txtTitle"
@@ -15,19 +16,19 @@ android:layout_height="match_parent"
             android:layout_height="25dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="19dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginStart="14dp"
             android:text="@string/txt_title"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/txtTitle"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/txtTitle"
             android:text="@string/txt_desc"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/txtTime"
@@ -36,17 +37,36 @@ android:layout_height="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_alignStart="@+id/txtDesc"
             android:text="@string/txt_time"
-            android:textSize="18sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/txtHost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/txtTitle"
-            android:layout_alignBottom="@+id/txtTitle"
-            android:layout_marginStart="46dp"
-            android:layout_toEndOf="@+id/txtTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="15dp"
             android:text="@string/txt_host"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/host_preface"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/txtHost" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtTime"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_alignEnd="@+id/txtHost"
+            android:checked="false"
+            android:duplicateParentState="false"
+            android:text="@string/event_RSVP" />
     </RelativeLayout>
 </LinearLayout>
