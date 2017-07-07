@@ -43,10 +43,6 @@ public class DatabaseStorage {
 
     }
 
-    public void pullShindigs(){
-
-    }
-
     public void pullUser(){
 
     }

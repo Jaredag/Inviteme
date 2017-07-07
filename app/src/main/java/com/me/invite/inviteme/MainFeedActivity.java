@@ -56,6 +56,10 @@ public class MainFeedActivity extends AppCompatActivity {
         });
     }
 
+    public void BUTTON(View view){
+
+    }
+
     /**
      * createAnEvent: Go to the Create Event page
      * @param view
