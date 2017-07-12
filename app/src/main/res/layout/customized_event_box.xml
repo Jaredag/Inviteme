@@ -7,8 +7,9 @@ android:layout_height="match_parent"
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:layout_weight="0.35"
-        android:background="#f5f1e4">
+        android:layout_weight="0.05"
+        android:background="#f5f1e4"
+        android:backgroundTint="@android:color/holo_blue_dark">
 
         <TextView
             android:id="@+id/txtTitle"
@@ -16,8 +17,9 @@ android:layout_height="match_parent"
             android:layout_height="25dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="14dp"
+            android:layout_marginStart="17dp"
             android:text="@string/txt_title"
+            android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -25,74 +27,89 @@ android:layout_height="match_parent"
             android:id="@+id/txtDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
             android:text="@string/txt_desc"
-            android:textSize="11sp"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp"
             android:layout_below="@+id/txtTitle"
-            android:layout_alignStart="@+id/txtTitle"
-            android:layout_alignEnd="@+id/txtHost" />
+            android:layout_alignStart="@+id/txtTitle" />
 
         <TextView
             android:id="@+id/txtTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtDesc"
+            android:layout_alignBottom="@+id/txtDesc"
+            android:layout_alignStart="@+id/hosted_By"
             android:text="@string/txt_time"
-            android:textSize="11sp"
-            android:layout_alignBaseline="@+id/button_RSVP"
-            android:layout_alignBottom="@+id/button_RSVP"
-            android:layout_alignStart="@+id/txtDesc" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtHost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/txt_host"
+            android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:layout_alignParentTop="true"
-            android:layout_alignEnd="@+id/txtSpots" />
+            android:layout_toEndOf="@+id/txtSpots" />
 
         <TextView
             android:id="@+id/hosted_By"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtTitle"
+            android:layout_alignBottom="@+id/txtTitle"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/txtTitle"
             android:text="@string/host_preface"
-            android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/txtHost"
-            android:layout_marginEnd="11dp" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txtDesc"
+            android:layout_below="@+id/txtDesc"
+            android:layout_marginTop="21dp"
             android:text="@string/location"
-            android:layout_alignStart="@+id/txtTime"
-            android:layout_toStartOf="@+id/total_Spots"
-            android:layout_alignTop="@+id/total_Spots"
-            android:layout_above="@+id/button_RSVP" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/button_RSVP"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="23dp"
-            android:text="@string/event_RSVP"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="23dp"
+            android:background="@color/cardview_dark_background"
+            android:text="@string/event_RSVP"
+            android:textColor="@color/cardview_light_background" />
 
         <TextView
             android:id="@+id/total_Spots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/txtLocation"
+            android:layout_alignBottom="@+id/txtLocation"
+            android:layout_alignStart="@+id/txtTime"
             android:text="@string/total_Spots"
-            android:layout_above="@+id/button_RSVP"
-            android:layout_alignStart="@+id/button_RSVP" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtSpots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/total_Spots"
+            android:layout_alignBottom="@+id/total_Spots"
+            android:layout_toEndOf="@+id/hosted_By"
             android:text="@string/txt_Spots"
-            android:layout_above="@+id/button_RSVP"
-            android:layout_alignEnd="@+id/button_RSVP" />
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 </LinearLayout>
