@@ -22,6 +22,7 @@ public class Shindig {
     private String date;
     private int numSpots;
     PartyAnimal host;
+    private String category;
     private ArrayList<PartyAnimal> partyAnimals;
 
     public Shindig(){
@@ -35,15 +36,17 @@ public class Shindig {
         this.date = shindig.getDate();
         this.numSpots = shindig.getNumSpots();
         this.host = shindig.getHost();
+        this.category = shindig.getCategory();
     }
 
-    public Shindig(String title, String description, String location, String date, int numSpots, PartyAnimal host) {
+    public Shindig(String title, String description, String location, String date, int numSpots, PartyAnimal host, String category) {
         this.title = title;
         this.description = description;
         this.location = location;
         this.date = date;
         this.numSpots = numSpots;
         this.host = host;
+        this.category = category;
     }
 
 
@@ -92,6 +95,10 @@ public class Shindig {
     public void setHost(PartyAnimal host) {
         this.host = host;
     }
+
+    public String getCategory() { return category; }
+
+    public void setCategory(String category) { this.category = category; }
 
     public ArrayList<PartyAnimal> getPartyAnimals() {
         return partyAnimals;
