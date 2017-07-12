@@ -3,11 +3,19 @@ package com.me.invite.inviteme;
 import android.content.Context;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
@@ -21,10 +29,12 @@ import java.util.ArrayList;
  */
 
 public class CustomAdapter extends ArrayAdapter<Shindig> {
-
-
+    private ArrayList arrayList;
+    private FirebaseDatabase database;
     public CustomAdapter(Context context, ArrayList<Shindig> shindigs) {
         super(context, 0, shindigs);
+        this.arrayList = shindigs;
+        database = database.getInstance();
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
@@ -47,7 +57,44 @@ public class CustomAdapter extends ArrayAdapter<Shindig> {
         location.setText(shindig.getLocation());
         time.setText(shindig.getDate());
         spots.setText(String.valueOf(shindig.getNumSpots()));
+        Log.d("isKey", "Key is: " + shindig.getKeyShin() + " : " + shindig.getTitle());
+
+        Button rsvp = (Button) convertView.findViewById(R.id.button_RSVP);
+
+        final View finalConvertView = convertView;
+        final Shindig shins = (Shindig) arrayList.get(position);
+        rsvp.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View view){
+
+                /*DatabaseReference shin  = database.getReference("Shindig");
+
+                shin.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        //for (DataSnapshot objSnapshot: snapshot.getChildren()) {
+                            //Object obj = objSnapshot.getKey();
+                            Shindig shindig = new Shindig(snapshot.getValue(Shindig.class));
+                            String message = "FREAK!!!!: " + shindig.getTitle() + " Desc: " + shindig.getDescription();
+                            Log.d("testing124", message);
+
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError firebaseError) {
+                        Log.e("Read failed", firebaseError.getMessage());
+                    }
+                });
+                //String key = shins.getKey();
+                //TextView shindigKey = (TextView) finalConvertView.findViewById(R.id.key);
+                //String key = shin.getText().toString();
+                //Log.d("TestKey", "Got the key: ");*/
+            }
+        });
 
         return convertView;
+    }
+
+    public void continueAsGuest(View view){
+
     }
 }

@@ -59,6 +59,7 @@ public class CreateShindigActivity extends AppCompatActivity {
          String date_time = date_timeText.getText().toString();
          EditText spotsText = (EditText) findViewById(R.id.eventSpots);
          String spotsString = spotsText.getText().toString();
+         ArrayList <PartyAnimal> partyAnimals = new ArrayList<PartyAnimal>();
          if (!spotsString.isEmpty())
              spots = Integer.parseInt(spotsString);
          else {
@@ -84,12 +85,16 @@ public class CreateShindigActivity extends AppCompatActivity {
          PartyAnimal partyAnimal = new PartyAnimal("Daniel", "555-555-555");
 
          // Create a class
-         Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal);
+         Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal, partyAnimals);
 
          // Pull the array of Shindigs created for the My Events page
          SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
          String objNull = mPrefs.getString(Pref, null);
          Gson gson = new Gson();
+
+         database.pushShindig(shindig);
+
+         Log.d("info", "after database: " + shindig.getKeyShin());
 
          if (objNull != null) {
              Log.i("ShindigCreated", "CREATE NEW SHINDIG!");
@@ -105,7 +110,6 @@ public class CreateShindigActivity extends AppCompatActivity {
              editor.commit();
          }
 
-         database.pushShindig(shindig);
          Log.i("Sent", "Sent to database");
          Intent intent = new Intent(this, MainFeedActivity.class);
          startActivity(intent);

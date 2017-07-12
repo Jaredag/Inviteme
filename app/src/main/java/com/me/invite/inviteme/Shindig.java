@@ -3,6 +3,8 @@ package com.me.invite.inviteme;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,9 +23,17 @@ public class Shindig {
     private String location;
     private String date;
     private int numSpots;
-    PartyAnimal host;
+    private PartyAnimal host;
     private ArrayList<PartyAnimal> partyAnimals;
+    private String shindigKey;
 
+    public String getKeyShin() {
+        return shindigKey;
+    }
+
+    public void setKeyShin(String key) {
+        this.shindigKey = key;
+    }
     public Shindig(){
         numSpots = 0;
     }
@@ -37,15 +47,15 @@ public class Shindig {
         this.host = shindig.getHost();
     }
 
-    public Shindig(String title, String description, String location, String date, int numSpots, PartyAnimal host) {
+    public Shindig(String title, String description, String location, String date, int numSpots, PartyAnimal host, ArrayList<PartyAnimal> partyAnimals) {
         this.title = title;
         this.description = description;
         this.location = location;
         this.date = date;
         this.numSpots = numSpots;
         this.host = host;
+        this.partyAnimals = partyAnimals;
     }
-
 
     public String getTitle() { return title; }
 

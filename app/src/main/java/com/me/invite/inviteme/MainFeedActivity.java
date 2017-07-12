@@ -42,7 +42,7 @@ public class MainFeedActivity extends AppCompatActivity {
                 Iterable<DataSnapshot>  it = dataSnapshot.getChildren();
                 for (DataSnapshot snap : it) {
                     Shindig shindig = new Shindig(snap.getValue(Shindig.class));
-                    String message = "This is a title: " + shindig.getTitle() + " Desc: " + shindig.getDescription();
+                    String message = "This is a key: " + shindig.getKeyShin() + " Desc: " + shindig.getDescription();
                     Log.d("Tag", message);
                     shindigList.add(shindig);
                 }
