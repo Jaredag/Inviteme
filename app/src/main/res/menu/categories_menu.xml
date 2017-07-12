@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/athletics"
+        android:title="@string/Athletics" />
+    <item android:id="@+id/leisure"
+        android:title="@string/Leisure" />
+    <item android:id="@+id/party"
+        android:title="@string/Party" />
+    <item android:id="@+id/outdoors"
+        android:title="@string/Outdoors" />
+    <item android:id="@+id/bbq"
+        android:title="@string/Bbq" />
+</menu>

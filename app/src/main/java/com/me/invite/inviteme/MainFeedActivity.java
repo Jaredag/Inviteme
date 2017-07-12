@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -82,5 +85,20 @@ public class MainFeedActivity extends AppCompatActivity {
         Log.i("TestYourFeedButton", "Your Feed button was pressed");
         Intent intent = new Intent(this, MyShindigs.class);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.categories_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final String category = item.getTitle().toString();
+        if (category == "Athletics" || category == "Movies, Board Games, etc." || category == "Party (Dancing, Music, etc.)" || category == "Outdoors (Fishing, Camping, etc.)" || category == "Cookouts or BBQs") {
+            return true;
+        }
+        return false;
     }
 }
