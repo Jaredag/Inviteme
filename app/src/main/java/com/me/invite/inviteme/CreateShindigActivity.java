@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -59,6 +60,8 @@ public class CreateShindigActivity extends AppCompatActivity {
          String date_time = date_timeText.getText().toString();
          EditText spotsText = (EditText) findViewById(R.id.eventSpots);
          String spotsString = spotsText.getText().toString();
+         Spinner categories = (Spinner) findViewById(R.id.spinnerCategory);
+         String category = categories.getSelectedItem().toString();
          if (!spotsString.isEmpty())
              spots = Integer.parseInt(spotsString);
          else {
@@ -66,7 +69,7 @@ public class CreateShindigActivity extends AppCompatActivity {
              return;
          }
 
-         if (title.isEmpty() || description.isEmpty() || location.isEmpty() || date_time.isEmpty() || spots > 50 || spots < 2)
+         if (title.isEmpty() || description.isEmpty() || location.isEmpty() || date_time.isEmpty() || spots > 50 || spots < 2 || category.isEmpty())
          {
              if (title.isEmpty())
                  displayToast("Title is empty!");
@@ -78,13 +81,15 @@ public class CreateShindigActivity extends AppCompatActivity {
                  displayToast("Date/Time is empty!");
              if (spots > 50 || spots < 2)
                  displayToast("# of spots must be 2-50!");
+             if (category.isEmpty())
+                 displayToast("Category has not been selected!");
              return;
          }
          // Pull from shared host name.
          PartyAnimal partyAnimal = new PartyAnimal("Daniel", "555-555-555");
 
          // Create a class
-         Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal);
+         Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal, category);
 
          // Pull the array of Shindigs created for the My Events page
          SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
