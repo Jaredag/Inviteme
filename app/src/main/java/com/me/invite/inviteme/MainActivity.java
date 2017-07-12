@@ -37,10 +37,11 @@ public class MainActivity extends AppCompatActivity {
      * onCreate: Creates a default item in Shared Preferences
      */
     protected void onCreate(Bundle savedInstanceState) {
-        FacebookSdk.sdkInitialize(getApplicationContext());
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        loginButton = (LoginButton) findViewById(R.id.fb_login_bn);
 
         // Pull the array of Shindigs created for the My Events page
         SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -51,11 +52,12 @@ public class MainActivity extends AppCompatActivity {
         editor.putString(Pref, json);
         editor.commit();
 
-        //callbackManager = CallbackManager.Factory.create();
-        /*loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+        callbackManager = CallbackManager.Factory.create();
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-
+                String userName = loginResult.getAccessToken().getUserId();
+                PartyAnimal host = new PartyAnimal(userName, "No Number");
             }
 
             @Override
@@ -67,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public void onError(FacebookException error) {
 
             }
-        });*/
+        });
     }
 
     /**
@@ -78,5 +80,11 @@ public class MainActivity extends AppCompatActivity {
         // Go to the Main Feed
         Intent intent = new Intent(this, MainFeedActivity.class);
         startActivity(intent);
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }

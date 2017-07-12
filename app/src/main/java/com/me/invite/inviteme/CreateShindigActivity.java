@@ -81,7 +81,7 @@ public class CreateShindigActivity extends AppCompatActivity {
              return;
          }
          // Pull from shared host name.
-         PartyAnimal partyAnimal = new PartyAnimal("Daniel", "555-555-555");
+         PartyAnimal partyAnimal = new PartyAnimal("Guest", "No Number");
 
          // Create a class
          Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal);
