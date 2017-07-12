@@ -1,5 +1,7 @@
 package com.me.invite.inviteme;
 
+import android.util.Log;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -35,8 +37,16 @@ public class DatabaseStorage {
         this.shindigs = shindigs;
     }
 
+    public DatabaseReference pullDatabaseReference(){
+        return database.getReference("Shindig");
+    }
+
     public void pushShindig(Shindig shindig){
-        database.getReference("Shindig").push().setValue(shindig);
+        //database.getReference("Shindig").push().setValue(shindig);
+        DatabaseReference key  = database.getReference("Shindig").push();
+        shindig.setKeyShin(key.getKey() + "DONOTUSE");
+        Log.d("KeySet", "database key: " + shindig.getKeyShin() + "other item: " + shindig.getTitle());
+        key.setValue(shindig);
     }
 
     public void pushUser(){

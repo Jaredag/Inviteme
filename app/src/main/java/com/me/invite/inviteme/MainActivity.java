@@ -45,12 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Pull the array of Shindigs created for the My Events page
         SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        Gson gson = new Gson();
-        ArrayList<Shindig> shindigList = new ArrayList<Shindig>();
-        SharedPreferences.Editor editor = mPrefs.edit();
-        String json = gson.toJson(shindigList);
-        editor.putString(Pref, json);
-        editor.commit();
+        String objNull = mPrefs.getString(Pref, null);
+        if (objNull == null) {
+            Gson gson = new Gson();
+            ArrayList<Shindig> shindigList = new ArrayList<Shindig>();
+            SharedPreferences.Editor editor = mPrefs.edit();
+            String json = gson.toJson(shindigList);
+            editor.putString(Pref, json);
+            editor.commit();
+        }
 
         callbackManager = CallbackManager.Factory.create();
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
