@@ -37,18 +37,11 @@ public class MyShindigs extends AppCompatActivity {
         String objNull = mPrefs.getString(Pref, null);
 
         if (objNull != null) {
-            Log.d("Test", "Your Events Test");
+            Log.d("Test", "My Shindigs Test");
             Gson gson = new Gson();
             String json = mPrefs.getString(Pref, "");
             Type type = new TypeToken<ArrayList<Shindig>>() {}.getType();
             ArrayList<Shindig> shindigList = gson.fromJson(json, type);
-
-            for (int i = 0; i < shindigList.size(); i++)
-            {
-                Shindig myShindig = shindigList.get(i);
-                String message = "This is a title: " + myShindig.getTitle() + " Desc: " + myShindig.getDescription();
-                Log.d("Test2", message);
-            }
 
             CustomAdapter adapter = new CustomAdapter(this, shindigList);
             ListView mListView = (ListView) findViewById(R.id.listView2);

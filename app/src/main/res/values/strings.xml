@@ -23,4 +23,13 @@
     <string name="total_Spots">Spots:</string>
     <string name="txt_Spots">Spots</string>
     <string name="facebook_app_id">2316140911945217</string>
+    <string name="select_category">Select Category</string>
+    <string-array name="categories_array">
+        <item>Athletics</item>
+        <item>Movie, Board Games, etc.</item>
+        <item>Party (Dancing, Music, etc.)</item>
+        <item>Outdoors (Fishing, Camping, etc.)</item>
+        <item>Arts and Crafts</item>
+    </string-array>
+
 </resources>
