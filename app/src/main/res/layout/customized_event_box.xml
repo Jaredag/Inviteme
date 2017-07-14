@@ -27,12 +27,12 @@ android:layout_height="match_parent"
             android:id="@+id/txtDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/txtTitle"
+            android:layout_below="@+id/txtTitle"
             android:layout_marginTop="27dp"
             android:text="@string/txt_desc"
             android:textColor="@android:color/background_dark"
-            android:textSize="18sp"
-            android:layout_below="@+id/txtTitle"
-            android:layout_alignStart="@+id/txtTitle" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/txtTime"
@@ -40,7 +40,7 @@ android:layout_height="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/txtDesc"
             android:layout_alignBottom="@+id/txtDesc"
-            android:layout_alignStart="@+id/hosted_By"
+            android:layout_toStartOf="@+id/button_RSVP"
             android:text="@string/txt_time"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp" />
@@ -53,7 +53,8 @@ android:layout_height="match_parent"
             android:textColor="@android:color/background_dark"
             android:textSize="18sp"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/txtSpots" />
+            android:layout_toEndOf="@+id/total_Spots"
+            android:layout_alignBottom="@+id/txtTitle" />
 
         <TextView
             android:id="@+id/hosted_By"
@@ -104,12 +105,12 @@ android:layout_height="match_parent"
             android:id="@+id/txtSpots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/total_Spots"
-            android:layout_alignBottom="@+id/total_Spots"
-            android:layout_toEndOf="@+id/hosted_By"
             android:text="@string/txt_Spots"
             android:textColor="@android:color/background_dark"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_alignBaseline="@+id/total_Spots"
+            android:layout_alignBottom="@+id/total_Spots"
+            android:layout_toEndOf="@+id/total_Spots" />
 
     </RelativeLayout>
 </LinearLayout>
