@@ -1,8 +1,7 @@
 package com.me.invite.inviteme;
 
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +15,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * CustomAdapter: Displays events in a listview with all the information from an event
@@ -29,16 +33,20 @@ import java.util.ArrayList;
  */
 
 public class CustomAdapter extends ArrayAdapter<Shindig> {
+    public static final String PREFS_NAME = "MyPrefs";
+    public static final String Pref = "Event";
     private ArrayList arrayList;
+    public static Context context;
     private FirebaseDatabase database;
     public CustomAdapter(Context context, ArrayList<Shindig> shindigs) {
         super(context, 0, shindigs);
         this.arrayList = shindigs;
         database = database.getInstance();
+        this.context = context;
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
-        Shindig shindig = getItem(position);
+        final Shindig shindig = getItem(position);
 
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.customized_event_box, parent, false);
@@ -63,38 +71,49 @@ public class CustomAdapter extends ArrayAdapter<Shindig> {
 
         final View finalConvertView = convertView;
         final Shindig shins = (Shindig) arrayList.get(position);
+
         rsvp.setOnClickListener(new View.OnClickListener(){
 
-            public void onClick(View view){
+            public void onClick(View view) {
+                Log.d("locationTest", "location: " + shins.getLocation() + "key: " + shins.getKeyShin());
+                DatabaseReference shin = database.getReference("Shindig");
 
-                /*DatabaseReference shin  = database.getReference("Shindig");
+                final Gson gson = new Gson();
 
-                shin.addListenerForSingleValueEvent(new ValueEventListener() {
+                shin.orderByChild("location").equalTo(shins.getLocation()).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        //for (DataSnapshot objSnapshot: snapshot.getChildren()) {
-                            //Object obj = objSnapshot.getKey();
-                            Shindig shindig = new Shindig(snapshot.getValue(Shindig.class));
-                            String message = "FREAK!!!!: " + shindig.getTitle() + " Desc: " + shindig.getDescription();
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        for (DataSnapshot childSnap : dataSnapshot.getChildren()) {
+                            Shindig shindig = new Shindig(childSnap.getValue(Shindig.class));
+                            String message = "FREAK!!!!: " + childSnap.child("location").getValue();
                             Log.d("testing124", message);
-
+                            final SharedPreferences mPrefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+                            final String objNull = mPrefs.getString(Pref, null);
+                            if (objNull != null) {
+                                Log.i("ShindigCreated", "CREATE NEW SHINDIG!");
+                                String json = mPrefs.getString(Pref, "");
+                                Type type = new TypeToken<ArrayList<Shindig>>() {}.getType();
+                                ArrayList<Shindig> shindigList = gson.fromJson(json, type);
+                                shindigList.add(shindig);
+                                String message1 = "This is a title: " + shindig.getTitle() + " Desc: " + shindig.getDescription();
+                                Log.d("Tag", message1);
+                                SharedPreferences.Editor editor = mPrefs.edit();
+                                String json2 = gson.toJson(shindigList);
+                                editor.putString(Pref, json2);
+                                editor.commit();
+                            }
+                        }
                     }
+
                     @Override
-                    public void onCancelled(DatabaseError firebaseError) {
-                        Log.e("Read failed", firebaseError.getMessage());
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.d("customAdError", "Error on rsvp occurred");
                     }
                 });
-                //String key = shins.getKey();
-                //TextView shindigKey = (TextView) finalConvertView.findViewById(R.id.key);
-                //String key = shin.getText().toString();
-                //Log.d("TestKey", "Got the key: ");*/
             }
         });
 
         return convertView;
-    }
-
-    public void continueAsGuest(View view){
-
     }
 }

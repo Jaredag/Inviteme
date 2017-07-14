@@ -18,9 +18,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
-
-
 /**
  * MainFeedActivity: Display all the events going on
  */
@@ -60,10 +57,6 @@ public class MainFeedActivity extends AppCompatActivity {
             }
 
         });
-    }
-
-    public void BUTTON(View view){
-
     }
 
     /**
