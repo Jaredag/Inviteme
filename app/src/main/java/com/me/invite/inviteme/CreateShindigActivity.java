@@ -62,6 +62,7 @@ public class CreateShindigActivity extends AppCompatActivity {
          String spotsString = spotsText.getText().toString();
          Spinner categories = (Spinner) findViewById(R.id.spinnerCategory);
          String category = categories.getSelectedItem().toString();
+         ArrayList <PartyAnimal> partyAnimals = new ArrayList<PartyAnimal>();
          if (!spotsString.isEmpty())
              spots = Integer.parseInt(spotsString);
          else {
@@ -89,7 +90,7 @@ public class CreateShindigActivity extends AppCompatActivity {
          PartyAnimal partyAnimal = new PartyAnimal("Guest", "No Number");
 
          // Create a class
-         Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal, category);
+         Shindig shindig = new Shindig(title, description, location, date_time, spots, partyAnimal, partyAnimals, category);
 
          // Pull the array of Shindigs created for the My Events page
          SharedPreferences mPrefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
