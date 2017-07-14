@@ -1,15 +1,21 @@
 package com.me.invite.inviteme;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.Calendar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -42,6 +48,28 @@ public class CreateShindigActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
+    //Begin of change
+    Calendar date;
+    final Context context = this;
+    public void showDateTimePicker() {
+        final Calendar currentDate = Calendar.getInstance();
+        date = Calendar.getInstance();
+        new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                date.set(year, monthOfYear, dayOfMonth);
+                new TimePickerDialog(context, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        date.set(Calendar.HOUR_OF_DAY, hourOfDay);
+                        date.set(Calendar.MINUTE, minute);
+                    }
+                }, currentDate.get(Calendar.HOUR_OF_DAY), currentDate.get(Calendar.MINUTE), false).show();
+            }
+        }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE)).show();
+    }
+    //End of change
+
     /**
      * createNewShindig: Lets the user create a new event and saves it to firebase and shared preferences and goes to the main feed page
      * @param view
@@ -56,8 +84,10 @@ public class CreateShindigActivity extends AppCompatActivity {
          String description = descriptionText.getText().toString();
          EditText locationText = (EditText) findViewById(R.id.eventLocation);
          String location = locationText.getText().toString();
-         EditText date_timeText = (EditText) findViewById(R.id.eventDate);
-         String date_time = date_timeText.getText().toString();
+         //Begin of change
+         SimpleDateFormat dateTime = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+         String date_time = dateTime.format(date.getTime());
+         //End of change
          EditText spotsText = (EditText) findViewById(R.id.eventSpots);
          String spotsString = spotsText.getText().toString();
          Spinner categories = (Spinner) findViewById(R.id.spinnerCategory);
