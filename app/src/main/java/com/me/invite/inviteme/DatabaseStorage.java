@@ -42,7 +42,6 @@ public class DatabaseStorage {
     }
 
     public void pushShindig(Shindig shindig){
-        //database.getReference("Shindig").push().setValue(shindig);
         DatabaseReference key  = database.getReference("Shindig").push();
         shindig.setKeyShin(key.getKey() + "DONOTUSE");
         Log.d("KeySet", "database key: " + shindig.getKeyShin() + "other item: " + shindig.getTitle());
@@ -50,7 +49,6 @@ public class DatabaseStorage {
     }
 
     public void pushShindigToCategory(Shindig shindig, String category){
-        //database.getReference("Shindig").push().setValue(shindig);
         DatabaseReference key  = database.getReference(category).push();
         shindig.setKeyShin(key.getKey() + "DONOTUSE");
         Log.d("KeySet", "database key: " + shindig.getKeyShin() + "other item: " + shindig.getTitle());

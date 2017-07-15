@@ -25,10 +25,10 @@
     <string name="facebook_app_id">2316140911945217</string>
     <string name="select_category">Select Category</string>
     <string name="Athletics">Athletics</string>
-    <string name="Leisure">Movies, Board Games, etc.</string>
-    <string name="Party">Party (Dancing, Music, etc.)</string>
-    <string name="Outdoors">Outdoors (Fishing, Camping, etc.)</string>
-    <string name="Bbq">Cookouts or BBQs</string>
+    <string name="Leisure">Leisure</string>
+    <string name="Party">Party</string>
+    <string name="Outdoors">Outdoors</string>
+    <string name="Bbq">Cookouts</string>
 
     <string-array name="categories_array">
         <item>@string/Athletics</item>

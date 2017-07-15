@@ -34,31 +34,7 @@ public class MainFeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_feed);
         database = database.getInstance();
 
-       //pullCategoryEvents("Shindig");
-
-        final Context context = this;
-        database.getReference("Shindig").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot){
-                ArrayList<Shindig> shindigList = new ArrayList<Shindig>();
-                Iterable<DataSnapshot>  it = dataSnapshot.getChildren();
-                for (DataSnapshot snap : it) {
-                    Shindig shindig = new Shindig(snap.getValue(Shindig.class));
-                    String message = "This is a key: " + shindig.getKeyShin() + " Desc: " + shindig.getDescription();
-                    Log.d("Tag", message);
-                    shindigList.add(shindig);
-                }
-                CustomAdapter adapter = new CustomAdapter(context, shindigList);
-                ListView mListView = (ListView) findViewById(R.id.listView);
-                mListView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error){
-                Log.w("Failed", "Failed to read value", error.toException());
-            }
-
-        });
+       pullCategoryEvents("Shindig");
     }
 
     /**
@@ -89,7 +65,7 @@ public class MainFeedActivity extends AppCompatActivity {
         return true;
     }
 
-    /*public void pullCategoryEvents(String category){
+    public void pullCategoryEvents(String category){
          final Context context = this;
         database.getReference(category).addValueEventListener(new ValueEventListener() {
             @Override
@@ -112,16 +88,13 @@ public class MainFeedActivity extends AppCompatActivity {
             }
 
         });
-    }*/
+    }
 
     public boolean onOptionsItemSelected(MenuItem item) {
         final String category = item.getTitle().toString();
         Log.d("ChosenCategory", "Category was chosen: " + category);
-        //pullCategoryEvents(category);
-        /*
-        if (category == "Athletics" || category == "Movies, Board Games, etc." || category == "Party (Dancing, Music, etc.)" || category == "Outdoors (Fishing, Camping, etc.)" || category == "Cookouts or BBQs") {
-            return true;
-        }*/
+        pullCategoryEvents(category);
+
         return true;
     }
 }
