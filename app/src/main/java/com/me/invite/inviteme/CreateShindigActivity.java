@@ -49,9 +49,9 @@ public class CreateShindigActivity extends AppCompatActivity {
     }
 
     //Begin of change
-    /*Calendar date;
+    Calendar date;
     final Context context = this;
-    public void showDateTimePicker() {
+    public void showDateTimePicker(View view) {
         final Calendar currentDate = Calendar.getInstance();
         date = Calendar.getInstance();
         new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
@@ -67,7 +67,7 @@ public class CreateShindigActivity extends AppCompatActivity {
                 }, currentDate.get(Calendar.HOUR_OF_DAY), currentDate.get(Calendar.MINUTE), false).show();
             }
         }, currentDate.get(Calendar.YEAR), currentDate.get(Calendar.MONTH), currentDate.get(Calendar.DATE)).show();
-    }*/
+    }
     //End of change
 
     /**
@@ -142,6 +142,7 @@ public class CreateShindigActivity extends AppCompatActivity {
              editor.commit();
          }
 
+         database.pushShindigToCategory(shindig, category);
          database.pushShindig(shindig);
          Log.i("Sent", "Sent to database");
          Intent intent = new Intent(this, MainFeedActivity.class);

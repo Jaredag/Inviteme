@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         //callbackManager.onActivityResult(requestCode, resultCode, data);
     //}
 
-    private void nextActivity(Profile profile){
+    /*private void nextActivity(Profile profile){
         if(profile != null){
             Intent main = new Intent(MainActivity.this, UserProfile.class);
             main.putExtra("name", profile.getFirstName());
@@ -129,5 +129,5 @@ public class MainActivity extends AppCompatActivity {
             main.putExtra("imageUrl", profile.getProfilePictureUri(200,200).toString());
             startActivity(main);
         }
-    }
+    }*/
 }

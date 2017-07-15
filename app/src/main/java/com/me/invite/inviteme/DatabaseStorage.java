@@ -49,6 +49,14 @@ public class DatabaseStorage {
         key.setValue(shindig);
     }
 
+    public void pushShindigToCategory(Shindig shindig, String category){
+        //database.getReference("Shindig").push().setValue(shindig);
+        DatabaseReference key  = database.getReference(category).push();
+        shindig.setKeyShin(key.getKey() + "DONOTUSE");
+        Log.d("KeySet", "database key: " + shindig.getKeyShin() + "other item: " + shindig.getTitle());
+        key.setValue(shindig);
+    }
+
     public void pushUser(){
 
     }
