@@ -85,9 +85,8 @@ public class CreateShindigActivity extends AppCompatActivity {
          EditText locationText = (EditText) findViewById(R.id.eventLocation);
          String location = locationText.getText().toString();
          //Begin of change
-         //SimpleDateFormat dateTime = new SimpleDateFormat("MM/dd/yyyy HH:mm");
-         //String date_time = dateTime.format(date.getTime());
-         String date_time = "10/25/1995 10:24";
+         SimpleDateFormat dateTime = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+         String date_time = dateTime.format(date.getTime());
          //End of change
          EditText spotsText = (EditText) findViewById(R.id.eventSpots);
          String spotsString = spotsText.getText().toString();

@@ -19,7 +19,7 @@ public class DatabaseStorage {
     private ArrayList<Shindig> shindigs;
 
     protected DatabaseStorage(){
-        // Just to defeat instantiation
+        // Just to defeat instantiations
         database = FirebaseDatabase.getInstance();
     }
 
